@@ -1,6 +1,22 @@
 =head1 NAME
 
-CGI::Kwiki::PerlPkgFormatter - format Perl package names as kwiki links
+CGI::Kwiki::PerlPkgFormatter - B<!!DEPRECATED!!> format Perl package names
+as kwiki links
+
+=head1 NOTICE
+
+B<This module is deprecated.  v0.14 and higher of CGI::Kwiki supports
+package name markup natively>
+
+ [CGI::Kwiki::PerlPkgFormatter]
+ CGI::Kwiki::!PerlPkgFormatter
+
+As of v0.04 of this module, generated links will insert a "!!WARNING!!"
+link pointing you to this notice.
+
+B<If you are still using this module with v0.13 of CGI::Kwiki or lower, you
+shoud upgrade and change your markup.  This module will be deleted from CPAN
+shortly>
 
 =head1 SYNOPSIS
 
@@ -47,17 +63,37 @@ produces the correct HTML markup:
  <li>CGI::Kwiki::PerlPkgFormatter
  </ul>
 
-=for testing
+=head1 SEE ALSO 
+
+L<CGI::Kwiki>, the KwikiFormattingRules page of an installed kwiki.
+
+=head1 AUTHOR 
+
+James FitzGibbon <JFITZ@cpan.org>
+
+=head1 COPYRIGHT 
+
+Copyright (c) 2003, James FitzGibbon.  All rights reserved. 
+
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself. 
+
+See http://www.perl.com/perl/misc/Artistic.html 
+
+=begin testing
+
 use Test::More;
 use_ok('CGI::Kwiki::PerlPkgFormatter');
-is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.3',
+is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.4',
     'tests running against correct version of module');
- 
+
+=end testing
+
 =cut
 
 package CGI::Kwiki::PerlPkgFormatter;
 
-$VERSION = '0.0.3';
+$VERSION = '0.0.4';
 
 use 5.005;  # for qr// and constant
 use strict;
@@ -126,7 +162,7 @@ my $in = "[{FooBar::Baz}]";
 my $out = CGI::Kwiki::PerlPkgFormatter->combine_chunks(
  CGI::Kwiki::PerlPkgFormatter->dispatch( [ $in ], 'perlpkg_wiki_link') );
 like( $out, $expected, 'marked package name is turned into a link');
-    
+
 =end testing
 
 =cut
@@ -143,32 +179,17 @@ sub perlpkg_wiki_link
 sub wiki_perlpkg_link_format
 {
     my($self, $text) = @_;
-    return qq{<a href="?page_id=$text">$text</a>};
+    return qq{
+        <a href="http://homepage.mac.com/jf647/perl/deprecated/PerlPkgFormatter.html">
+        !!WARNING!!
+        </a>
+        <a href="?page_id=$text">$text</a>
+    };
 }
 
 # keep require happy
 1;
 
-__END__
-
-=head1 SEE ALSO 
-
-L<CGI::Kwiki>, the KwikiFormattingRules page of an installed kwiki.
-
-=head1 AUTHOR 
-
-James FitzGibbon <JFITZ@cpan.org>
-
-=head1 COPYRIGHT 
-
-Copyright (c) 2003, James FitzGibbon.  All rights reserved. 
-
-This program is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself. 
-
-See http://www.perl.com/perl/misc/Artistic.html 
-
-=cut
 
 #
 # EOF

@@ -9,3 +9,8 @@ Revision history for Perl extension CGI::Kwiki::PerlPkgFormatter.
     - Add CGI::Kwiki to PREREQ_PM.
     - 'use' CGI::Kwiki before 'use base CGI::Kwiki' to produce a more
       intelligent error message if CGI::Kwiki isn't installed
+
+0.0.4 Tue Jun 10 2003
+
+    - transitional release to deprecate module (just in case anyone
+      is actually using it)

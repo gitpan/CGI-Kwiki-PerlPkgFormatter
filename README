@@ -1,5 +1,20 @@
 NAME
-    CGI::Kwiki::PerlPkgFormatter - format Perl package names as kwiki links
+    CGI::Kwiki::PerlPkgFormatter - !!DEPRECATED!! format Perl package names
+    as kwiki links
+
+NOTICE
+    This module is deprecated. v0.14 and higher of CGI::Kwiki supports
+    package name markup natively
+
+     [CGI::Kwiki::PerlPkgFormatter]
+     CGI::Kwiki::!PerlPkgFormatter
+
+    As of v0.04 of this module, generated links will insert a "!!WARNING!!"
+    link pointing you to this notice.
+
+    If you are still using this module with v0.13 of CGI::Kwiki or lower,
+    you shoud upgrade and change your markup. This module will be deleted
+    from CPAN shortly
 
 SYNOPSIS
     In the kwiki's config file:

@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl -w
+#!perl -w
 
 use Test::More 'no_plan';
 
@@ -33,10 +33,10 @@ tie *STDERR, 'Catch', '_STDERR_' or die $!;
 {
     undef $main::_STDOUT_;
     undef $main::_STDERR_;
-#line 51 PerlPkgFormatter.pm
+#line 64 PerlPkgFormatter.pm
 use Test::More;
 use_ok('CGI::Kwiki::PerlPkgFormatter');
-is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.3',
+is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.4',
     'tests running against correct version of module');
 
     undef $main::_STDOUT_;
@@ -46,7 +46,7 @@ is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.3',
 {
     undef $main::_STDOUT_;
     undef $main::_STDERR_;
-#line 73 PerlPkgFormatter.pm
+#line 88 PerlPkgFormatter.pm
 
 my @orig_process_order = CGI::Kwiki::Formatter->process_order();
 my @new_process_order = CGI::Kwiki::PerlPkgFormatter->process_order();
@@ -61,7 +61,7 @@ is( @new_process_order, @orig_process_order + 2,
 {
     undef $main::_STDOUT_;
     undef $main::_STDERR_;
-#line 98 PerlPkgFormatter.pm
+#line 113 PerlPkgFormatter.pm
 
 my $expected = qr|^FooBar::Baz$|;
 my $in = "!{FooBar::Baz}";
@@ -77,7 +77,7 @@ like( $out, $expected, 'marked package name is not turned into a link');
 {
     undef $main::_STDOUT_;
     undef $main::_STDERR_;
-#line 121 PerlPkgFormatter.pm
+#line 136 PerlPkgFormatter.pm
 
 my $expected = qr|<a href="\?page_id=FooBar::Baz">FooBar::Baz</a>|;
 my $in = "[{FooBar::Baz}]";
