@@ -50,18 +50,20 @@ produces the correct HTML markup:
 =for testing
 use Test::More;
 use_ok('CGI::Kwiki::PerlPkgFormatter');
-is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.2',
+is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.3',
     'tests running against correct version of module');
  
 =cut
 
 package CGI::Kwiki::PerlPkgFormatter;
 
-$VERSION = '0.0.2';
+$VERSION = '0.0.3';
 
 use 5.005;  # for qr// and constant
 use strict;
 use warnings;
+
+use CGI::Kwiki::Formatter;
 use base 'CGI::Kwiki::Formatter';
 
 use constant    PACKAGE_LINK   => qr/\[{([\w:]+)}\]/;

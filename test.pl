@@ -36,7 +36,7 @@ tie *STDERR, 'Catch', '_STDERR_' or die $!;
 #line 51 PerlPkgFormatter.pm
 use Test::More;
 use_ok('CGI::Kwiki::PerlPkgFormatter');
-is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.2',
+is( $CGI::Kwiki::PerlPkgFormatter::VERSION, '0.0.3',
     'tests running against correct version of module');
 
     undef $main::_STDOUT_;

@@ -4,3 +4,4 @@ MANIFEST
 PerlPkgFormatter.pm
 README
 test.pl
+META.yml                                Module meta-data in YAML

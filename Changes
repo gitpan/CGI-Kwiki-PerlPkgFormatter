@@ -3,3 +3,9 @@ Revision history for Perl extension CGI::Kwiki::PerlPkgFormatter.
 0.0.2 Sun May 18 2003
 
 	- first release to CPAN
+
+0.0.3 Sun May 18 2003
+
+    - Add CGI::Kwiki to PREREQ_PM.
+    - 'use' CGI::Kwiki before 'use base CGI::Kwiki' to produce a more
+      intelligent error message if CGI::Kwiki isn't installed
