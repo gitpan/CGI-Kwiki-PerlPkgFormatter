@@ -1,0 +1,60 @@
+NAME
+    CGI::Kwiki::PerlPkgFormatter - format Perl package names as kwiki links
+
+SYNOPSIS
+    In the kwiki's config file:
+
+     formatter_class: CGI::Kwiki::PerlPkgFormatter
+
+    In the source of a kwiki page:
+
+     [{CGI::Kwiki::PerlPkgFormatter}] will become a link
+     !{CGI::Kwiki::PerlPkgFormatter} will not become a link
+
+DESCRIPTION
+    CGI::Kwiki::PerlPkgFormatter extends CGI::Kwiki::Formatter to make it
+    easier to create kwiki links out of Perl package names.
+
+    The default kwiki markup would take the following source:
+
+     * CGI::Kwiki::PerlPkgFormatter
+     * [CGI::Kwiki::PerlPkgFormatter]
+     * !CGI::Kwiki::PerlPkgFormatter
+ 
+    and output the following HTML:
+
+     <ul>
+     <li>CGI::Kwiki::<a href="?PerlPkgFormatter">PerlPkgFormatter</a>
+     <li>[CGI::Kwiki::<a href="?PerlPkgFormatter">PerlPkgFormatter</a>]
+     <li>!CGI::Kwiki::<a href="?PerlPkgFormatter">PerlPkgFormatter</a>
+     </ul>
+
+    None of which are links to a page named after the package.
+
+    Using CGI::Kwiki::PerlPkgFormatter, the following source:
+
+     * [{CGI::Kwiki::PerlPkgFormatter}]
+     * !{CGI::Kwiki::PerlPkgFormatter}
+
+    produces the correct HTML markup:
+
+     <ul>
+     <li><a href="?page_id=CGI::Kwiki::PerlPkgFormatter">
+     CGI::Kwiki::PerlPkgFormatter</a>
+     <li>CGI::Kwiki::PerlPkgFormatter
+     </ul>
+
+SEE ALSO
+    CGI::Kwiki, the KwikiFormattingRules page of an installed kwiki.
+
+AUTHOR
+    James FitzGibbon <JFITZ@cpan.org>
+
+COPYRIGHT
+    Copyright (c) 2003, James FitzGibbon. All rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+    See http://www.perl.com/perl/misc/Artistic.html
+
